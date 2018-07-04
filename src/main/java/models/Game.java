@@ -14,6 +14,7 @@ public class Game {
 	private String title;
 	private Genre genre;
 	private List<Console> consoles;
+	private List<Owner> owners;
 
 	public Game(){
 
@@ -67,5 +68,13 @@ public class Game {
 	public void addConsoleToGame(Console console){
 		this.consoles.add(console);
 	}
+	@ManyToOne
+	@JoinColumn(name = "owner_id", nullable = false)
+	public List<Owner> getOwners() {
+		return owners;
+	}
 
+	public void setOwners(List<Owner> owners) {
+		this.owners = owners;
+	}
 }

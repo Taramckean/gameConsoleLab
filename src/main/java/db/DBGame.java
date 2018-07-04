@@ -20,6 +20,7 @@ public class DBGame {
 		try { Criteria cr = session.createCriteria(Console.class);
 			((Criteria) cr).createAlias("games", "game");
 			cr.add(Restrictions.eq("game.id", game.getId()));
+			cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 			consoles = cr.list();
 		} catch(HibernateException e){
 			e.printStackTrace();

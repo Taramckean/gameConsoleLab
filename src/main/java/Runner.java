@@ -5,6 +5,8 @@ import models.Console;
 import models.Game;
 import models.Genre;
 
+import java.util.List;
+
 public class Runner {
 	public static void main(String[] args) {
 
@@ -29,6 +31,11 @@ public class Runner {
 		DBGame.addGametoConsole(console1, game1);
 		DBGame.addGametoConsole(console1, game2);
 
-		
+		DBGame.addGametoConsole(console2, game4);
+		DBGame.addGametoConsole(console3, game4);
+
+		List<Console> ConsolesFromGames = DBGame.getConsolesFromGame(game4);
+
+		List <Game> gamesFromConsoles = DBConsole.getGamesFromConsole(console1);
 	}
 }
