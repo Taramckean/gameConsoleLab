@@ -13,6 +13,7 @@
         <property name="show_sql">true</property>
         <mapping class = "models.Console"/>
         <mapping class = "models.Game"/>
+        <mapping class = "models.Owner"/>
 
     </session-factory>
 </hibernate-configuration>

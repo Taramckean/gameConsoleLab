@@ -4,6 +4,7 @@ import db.DBHelper;
 import models.Console;
 import models.Game;
 import models.Genre;
+import models.Owner;
 
 import java.util.List;
 
@@ -28,6 +29,12 @@ public class Runner {
 		DBHelper.saveOrUpdate(console2);
 		DBHelper.saveOrUpdate(console3);
 
+		Owner owner1 = new Owner("Campbell", game1 );
+		Owner owner2 = new Owner("Tara", game1);
+		DBHelper.saveOrUpdate(owner1);
+		DBHelper.saveOrUpdate(owner2);
+
+
 		DBGame.addGametoConsole(console1, game1);
 		DBGame.addGametoConsole(console1, game2);
 
@@ -37,5 +44,7 @@ public class Runner {
 		List<Console> ConsolesFromGames = DBGame.getConsolesFromGame(game4);
 
 		List <Game> gamesFromConsoles = DBConsole.getGamesFromConsole(console1);
+
+		List<Owner> ownersForThisGame = DBGame.getOwnersForGame(game1);
 	}
 }

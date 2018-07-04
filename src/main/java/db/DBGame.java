@@ -2,6 +2,7 @@ package db;
 
 import models.Console;
 import models.Game;
+import models.Owner;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -33,6 +34,21 @@ public class DBGame {
 		console.addGameToConsole(game);
 		game.addConsoleToGame(console);
 		DBHelper.saveOrUpdate(game);
+	}
+
+	public static List<Owner> getOwnersForGame(Game game) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Owner> results = null;
+		try {
+			Criteria cr = session.createCriteria(Owner.class);
+			cr.add(Restrictions.eq("favouriteGame", game));
+			results =  cr.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return results;
 	}
 
 }

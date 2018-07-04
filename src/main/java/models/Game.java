@@ -68,8 +68,8 @@ public class Game {
 	public void addConsoleToGame(Console console){
 		this.consoles.add(console);
 	}
-	@ManyToOne
-	@JoinColumn(name = "owner_id", nullable = false)
+	@OneToMany
+			(mappedBy= "favouriteGame", fetch = FetchType.LAZY)
 	public List<Owner> getOwners() {
 		return owners;
 	}
