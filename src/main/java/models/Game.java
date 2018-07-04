@@ -19,7 +19,7 @@ public class Game {
 
 	}
 
-	public Game(String title, Genre genre, List<Console> consoles) {
+	public Game(String title, Genre genre) {
 		this.title = title;
 		this.genre = genre;
 		this.consoles =new ArrayList<Console>();
@@ -34,7 +34,7 @@ public class Game {
 	public String getTitle() {
 		return title;
 	}
-	@Column(name ="genre")
+	@Enumerated(value = EnumType.STRING)
 	public Genre getGenre() {
 		return genre;
 	}

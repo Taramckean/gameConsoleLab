@@ -27,4 +27,11 @@ public class DBGame {
 			session.close();
 		} return consoles;
 	}
+
+	public static void addGametoConsole(Console console, Game game) {
+		console.addGameToConsole(game);
+		game.addConsoleToGame(console);
+		DBHelper.saveOrUpdate(game);
+	}
+
 }
