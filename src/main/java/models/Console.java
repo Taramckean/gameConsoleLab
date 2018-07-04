@@ -71,4 +71,8 @@ public class Console {
 	public void setGames(List<Game> games) {
 		this.games = games;
 	}
+
+	public void addGameToConsole(Game game){
+		this.games.add(game);
+	}
 }

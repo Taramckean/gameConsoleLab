@@ -41,8 +41,8 @@ public class Game {
 
 	@ManyToMany
 	@JoinTable(name ="game_console",
-		joinColumns =  {@JoinColumn(name = "game_id", nullable = false, updatable = false)}
-		inverseJoinColumns = {@JoinColumn(name ="console_id", nullable = false, up)})
+		joinColumns =  {@JoinColumn(name = "game_id", nullable = false, updatable = false)},
+		inverseJoinColumns = {@JoinColumn(name ="console_id", nullable = false, updatable = false)})
 	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
 	public List<Console> getConsoles() {
 		return consoles;
@@ -63,4 +63,9 @@ public class Game {
 	public void setConsoles(List<Console> consoles) {
 		this.consoles = consoles;
 	}
+
+	public void addConsoleToGame(Console console){
+		this.consoles.add(console);
+	}
+
 }

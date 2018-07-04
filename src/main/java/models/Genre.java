@@ -8,13 +8,14 @@ public enum Genre {
 
 	private int funLevel;
 
+	public int getFunLevel() {
+		return funLevel;
+	}
+
 	Genre(int funLevel) {
 		this.funLevel = funLevel;
 
 
-		public int getFunLevel () {
-			return funLevel;
-		}
 	}
 
 }
